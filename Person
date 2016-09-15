@@ -1,7 +1,0 @@
-/**
-* Program Person is Parent file to Student and Teacher
-*/
-
-public class Person{
-	
-}

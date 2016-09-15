@@ -1,0 +1,75 @@
+/**
+* Bank Account Program describes a generic bank account
+*/
+
+import java.util.*;
+
+public class BankAccount
+{
+//fields--------------------------------------------------------------------------------
+	private int accountNumber; //key number -- unique
+	private double balance;
+	private int[] clientId = new int[1];
+//constructors--------------------------------------------------------------------------
+	public BankAccount (int accNum, double bal, int[] clientId){
+		this.accountNumber=accNum; 
+		this.balance=bal;
+		this.clientId=clientId;
+	}
+	public BankAccount (int accNum, double bal){
+		this.accountNumber=accNum; 
+		this.balance=bal;
+		this.clientId[0]=0;
+	}
+//public getters and setters------------------------------------------------------------
+	//get balance
+	public int getAccountNumber(){
+		return this.accountNumber;
+	}
+	
+	public void setBalance(double newBalance){
+		this.balance = newBalance;
+	}
+	public double getBalance(){
+		return this.balance;
+	}
+	
+	public void setClientId(int[] newClientIdList){
+		this.clientId=newClientIdList;
+	}
+	
+	public int[] getClientId(){
+		return this.clientId;
+	}
+//public methods------------------------------------------------------------------------
+	public void deposit(double amountToAdd){
+		this.balance += amountToAdd; //this.balance = this.balance + amountToAdd;
+	}
+	public boolean withdraw(double amountToWithdraw){
+		if (amountToWithdraw <= this.balance){
+			this.setBalance(this.balance - amountToWithdraw);
+			return true;
+		} else {
+			System.out.println("Insufficient funds. Withdrawal rejected.");
+			return false;
+		} 
+	}
+	public String toString(){
+		String msg = "*********************************";
+		msg += "AccountNumber: "+this.accountNumber+"\n";
+		msg += "Balance: "+this.balance+"\n";
+		
+		for(int i = 0; i < clientId.length; i++){
+			msg += "client ID: "+this.clientId[i]+"\n";
+		}
+		return msg;
+	}
+//private methods-----------------------------------------------------------------------
+	
+}
+/**
+* methodName()summary...
+* 	parameters/input: ...
+* 	return/output: ...
+* 	other Effects/ changes in object state: ...
+*/
